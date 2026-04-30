@@ -1,5 +1,5 @@
 ---
-// Guia de Ilha Grande - Versão 2.5: Menu Mobile Funcional + Logo Imponente
+// Guia de Ilha Grande - Versão 2.6: Menu Exposto no Mobile (Sem Hambúrguer)
 ---
 <!doctype html>
 <html lang="pt-br">
@@ -20,93 +20,69 @@
 				position: sticky; 
 				top: 0; 
 				z-index: 100; 
+				padding: 1rem 0;
 			}
 			.header-container {
 				display: flex; 
-				justify-content: space-between; 
+				flex-direction: column; /* No celular: um embaixo do outro */
 				align-items: center; 
-				padding: 1rem 5%;
+				gap: 15px;
 				max-width: 1400px;
 				margin: 0 auto;
+				padding: 0 5%;
 			}
 			
-            /* LOGO AJUSTÁVEL */
+            /* LOGO */
             .logo-img { 
-				height: 180px; /* Gigante no Desktop */
+				height: 100px; /* Tamanho bom para celular */
 				width: auto; 
 				object-fit: contain; 
-				transition: 0.3s ease;
 			} 
 
-			/* MENU DESKTOP (Escondido no celular) */
-            nav.desktop-nav { display: none; }
+			/* NAVEGAÇÃO EXPOSTA NO CELULAR */
+            nav { 
+				display: grid; 
+				grid-template-columns: repeat(3, 1fr); /* 3 colunas de links no celular */
+				gap: 10px;
+				width: 100%;
+				text-align: center;
+			}
+			nav a { 
+				text-decoration: none; 
+				color: var(--gray); 
+				font-size: 10px; 
+				font-weight: 800; 
+				text-transform: uppercase; 
+				letter-spacing: 0.5px;
+				padding: 5px 0;
+			}
+			nav a:hover { color: var(--primary); }
 
-			/* BOTÃO HAMBÚRGUER (Só aparece no celular) */
-			.menu-toggle {
-				display: block;
-				background: none;
-				border: none;
-				cursor: pointer;
-				padding: 10px;
-			}
-			.hamburger-icon {
-				width: 30px;
-				height: 3px;
-				background: var(--dark);
-				display: block;
-				position: relative;
-			}
-			.hamburger-icon::before, .hamburger-icon::after {
-				content: '';
-				width: 30px;
-				height: 3px;
-				background: var(--dark);
-				display: block;
-				position: absolute;
-			}
-			.hamburger-icon::before { top: -8px; }
-			.hamburger-icon::after { bottom: -8px; }
-
-			/* MENU MOBILE (Escondido por padrão) */
-			.mobile-nav {
-				display: none;
-				flex-direction: column;
-				background: white;
-				padding: 20px 5%;
-				border-top: 1px solid #f1f5f9;
-				gap: 15px;
-			}
-			.mobile-nav.active { display: flex; }
-			.mobile-nav a {
-				text-decoration: none;
-				color: var(--dark);
-				font-weight: 800;
-				text-transform: uppercase;
-				font-size: 14px;
-				border-bottom: 1px solid #f8fafc;
-				padding-bottom: 10px;
-			}
-
-			/* RESPONSIVIDADE (Ajustes para PC) */
+			/* AJUSTES PARA COMPUTADOR (DESKTOP) */
 			@media (min-width: 1024px) { 
-				.menu-toggle { display: none; } /* Esconde o botão no PC */
-				nav.desktop-nav { display: flex; gap: 25px; align-items: center; }
-				nav a { text-decoration: none; color: var(--gray); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-				nav a:hover { color: var(--primary); }
-				.mobile-nav { display: none !important; }
+				.header-container {
+					flex-direction: row; /* No PC: um ao lado do outro */
+					justify-content: space-between;
+					padding: 0.5rem 5%;
+				}
+				.logo-img { height: 180px; } /* Logo gigante no PC */
+				nav { 
+					display: flex; 
+					grid-template-columns: none; 
+					width: auto; 
+					gap: 25px; 
+				}
+				nav a { font-size: 12px; letter-spacing: 1px; }
 			}
 
-			@media (max-width: 768px) {
-				.logo-img { height: 80px; } /* Logo menor no celular para caber o menu */
-			}
-
-			/* HERO, CARDS E FOOTER (Mantidos conforme sua aprovação) */
+			/* HERO SECTION */
 			.hero { position: relative; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1590508148391-6639ef13182d?q=80&w=1920&auto=format&fit=crop'); background-size: cover; background-position: center; }
 			.hero-content { position: relative; z-index: 3; padding: 0 20px; max-width: 1000px; }
 			.hero h1 { font-size: clamp(2rem, 6vw, 4rem); margin: 0; font-weight: 900; line-height: 1.1; text-transform: uppercase; text-shadow: 2px 4px 20px rgba(0,0,0,0.7); }
 			.hero p { font-size: clamp(1rem, 2.5vw, 1.4rem); margin: 20px 0 35px; font-weight: 600; text-shadow: 1px 2px 10px rgba(0,0,0,0.7); }
 			.btn { background: var(--primary); color: white; padding: 18px 40px; border: none; border-radius: 10px; font-weight: 800; text-transform: uppercase; cursor: pointer; text-decoration: none; font-size: 14px; transition: 0.3s; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
 			
+			/* CARDS */
 			.section-title { text-align: center; padding: 80px 0 40px; text-transform: uppercase; font-weight: 900; font-style: italic; font-size: 2.2rem; }
 			.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 100px; max-width: 1300px; margin: 0 auto; }
 			.card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid #f1f5f9; text-align: center; transition: 0.4s; }
@@ -115,6 +91,7 @@
 			.card h3 { margin: 20px 0 5px; text-transform: uppercase; font-weight: 900; font-size: 1.3rem; }
 			.card p { color: var(--gray); font-size: 14px; margin-bottom: 25px; padding: 0 15px; }
 
+			/* FOOTER */
 			footer { background: #0f172a; color: #94a3b8; padding: 80px 5% 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
 			footer h4 { color: white; text-transform: uppercase; border-left: 5px solid var(--primary); padding-left: 15px; font-size: 14px; margin-bottom: 25px; }
 			footer ul { list-style: none; padding: 0; }
@@ -131,8 +108,8 @@
 					<img src="/logo.webp" alt="Logo Guia de Ilha Grande" class="logo-img" />
 				</a>
 				
-				<!-- Menu para Computador -->
-				<nav class="desktop-nav">
+				<!-- Navegação que sempre aparece (Desktop e Mobile) -->
+				<nav>
 					<a href="#">Onde Comer</a>
 					<a href="#">Onde Ficar</a>
 					<a href="#">Guia Prático</a>
@@ -140,33 +117,8 @@
 					<a href="#">Sobre Nós</a>
 					<a href="#">Contato</a>
 				</nav>
-
-				<!-- Botão Hambúrguer para Celular -->
-				<button class="menu-toggle" id="menuBtn">
-					<span class="hamburger-icon"></span>
-				</button>
 			</div>
-
-			<!-- Menu para Celular (Aparece ao clicar) -->
-			<nav class="mobile-nav" id="mobileMenu">
-				<a href="#">Onde Comer</a>
-				<a href="#">Onde Ficar</a>
-				<a href="#">Guia Prático</a>
-				<a href="#">O Que Fazer</a>
-				<a href="#">Sobre Nós</a>
-				<a href="#">Contato</a>
-			</nav>
 		</header>
-
-		<!-- Script para abrir/fechar o menu -->
-		<script is:inline>
-			const btn = document.getElementById('menuBtn');
-			const menu = document.getElementById('mobileMenu');
-
-			btn.addEventListener('click', () => {
-				menu.classList.toggle('active');
-			});
-		</script>
 
 		<section class="hero">
 			<div class="hero-content">
