@@ -1,11 +1,192 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroCards from '../components/HeroCards.astro';
+// Guia de Ilha Grande - Versão 2.4: LOGO PADRÃO "GUIA DE CAMBARÁ" (IMPONENTE)
 ---
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Guia de Ilha Grande | O Melhor Guia de Viagem para o Paraíso</title>
+		<meta name="description" content="Planeje sua viagem para Ilha Grande com especialistas. Dicas de praias, trilhas e as melhores hospedagens." />
+		
+		<style>
+			:root { --primary: #10b981; --dark: #0f172a; --gray: #64748b; }
+			body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; color: var(--dark); line-height: 1.6; background: #fff; }
+			
+			/* HEADER COM LOGO ESTILO CAMBARÁ */
+			header { 
+				display: flex; 
+				justify-content: space-between; 
+				align-items: center; 
+				padding: 1.5rem 5%; /* Mais respiro lateral e vertical */
+				border-bottom: 1px solid #f1f5f9; 
+				background: white; 
+				position: sticky; 
+				top: 0; 
+				z-index: 100; 
+			}
+			.logo-box { display: flex; align-items: center; text-decoration: none; }
+			
+            /* LOGO GIGANTE (180px - IGUAL AO PRINT) */
+            .logo-img { 
+				height: 180px; /* Aumentado para o tamanho do print */
+				width: auto; 
+				object-fit: contain; 
+				display: block;
+				transition: 0.3s ease-in-out;
+			} 
+			
+			@media (max-width: 768px) {
+				header { padding: 1rem 5%; }
+				.logo-img { height: 100px; } /* Ainda grande no mobile, mas adaptada */
+			}
 
-<BaseLayout 
-  title="Guia de Ilha Grande | Informações atualizadas 2026" 
-  description="Guia completo de Ilha Grande com dicas de onde ficar, o que fazer, como chegar e roteiros. Conteúdo criado por especialistas locais."
->
-  <HeroCards />
-</BaseLayout>
+            nav { display: none; }
+			@media (min-width: 1024px) { 
+				nav { display: flex; gap: 35px; align-items: center; } /* Alinhado ao centro da logo */
+				nav a { text-decoration: none; color: var(--gray); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+				nav a:hover { color: var(--primary); }
+			}
+
+			/* HERO SECTION */
+			.hero { 
+				position: relative; 
+				height: 70vh; 
+				display: flex; 
+				align-items: center; 
+				justify-content: center; 
+				text-align: center; 
+				color: white; 
+				background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1590508148391-6639ef13182d?q=80&w=1920&auto=format&fit=crop');
+                background-size: cover;
+                background-position: center;
+			}
+			
+			.hero-content { position: relative; z-index: 3; padding: 0 20px; max-width: 1000px; }
+			.hero h1 { 
+                font-size: clamp(2.2rem, 6vw, 4.5rem); 
+                margin: 0; 
+                font-weight: 900; 
+                line-height: 1; 
+                text-transform: uppercase;
+                text-shadow: 2px 4px 20px rgba(0,0,0,0.7); 
+            }
+			.hero p { 
+                font-size: clamp(1.1rem, 2.5vw, 1.6rem); 
+                margin: 25px 0 40px; 
+                font-weight: 600; 
+                text-shadow: 1px 2px 10px rgba(0,0,0,0.7);
+            }
+			.btn { 
+                background: var(--primary); 
+                color: white; 
+                padding: 20px 50px; 
+                border: none; 
+                border-radius: 12px; 
+                font-weight: 800; 
+                text-transform: uppercase; 
+                cursor: pointer; 
+                text-decoration: none; 
+                font-size: 16px; 
+                transition: 0.3s; 
+                box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4); 
+            }
+			.btn:hover { background: #059669; transform: scale(1.05); }
+
+			/* SEÇÃO DE CARDS */
+			.section-title { text-align: center; padding: 80px 0 40px; text-transform: uppercase; font-weight: 900; font-style: italic; font-size: 2.5rem; color: var(--dark); }
+			.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; padding: 0 5% 100px; max-width: 1300px; margin: 0 auto; }
+			.card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.06); border: 1px solid #f1f5f9; text-align: center; transition: 0.4s ease; }
+			.card:hover { transform: translateY(-15px); }
+			.card-img-box { height: 220px; overflow: hidden; }
+			.card img { width: 100%; height: 100%; object-fit: cover; }
+			.card h3 { margin: 25px 0 10px; text-transform: uppercase; font-weight: 900; font-size: 1.4rem; }
+			.card p { color: var(--gray); font-size: 15px; margin-bottom: 30px; padding: 0 20px; }
+
+			/* FOOTER */
+			footer { background: #0f172a; color: #94a3b8; padding: 100px 5% 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 60px; }
+			footer h4 { color: white; text-transform: uppercase; border-left: 5px solid var(--primary); padding-left: 15px; font-size: 14px; margin-bottom: 30px; }
+			footer ul { list-style: none; padding: 0; }
+			footer ul li { margin-bottom: 15px; font-size: 15px; }
+			footer a { color: #10b981; text-decoration: none; font-weight: 700; }
+			.copyright { grid-column: 1 / -1; text-align: center; border-top: 1px solid #1e293b; padding-top: 50px; font-size: 11px; letter-spacing: 5px; font-weight: 700; color: #475569; }
+		</style>
+	</head>
+	<body>
+
+		<header>
+			<a href="/" class="logo-box">
+				<!-- LOGO GIGANTE PADRÃO CAMBARÁ -->
+				<img src="/logo.webp" alt="Logo Guia de Ilha Grande" class="logo-img" />
+			</a>
+			<nav>
+				<a href="#">Onde Comer</a>
+				<a href="#">Onde Ficar</a>
+				<a href="#">Guia Prático</a>
+				<a href="#">O Que Fazer</a>
+				<a href="#">Sobre Nós</a>
+				<a href="#">Contato</a>
+			</nav>
+		</header>
+
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Descubra Ilha Grande com<br/>quem conhece o paraíso</h1>
+				<p>Roteiros autênticos e dicas de especialistas para sua viagem perfeita.</p>
+				<a href="#planejar" class="btn">Ver Roteiros</a>
+			</div>
+		</section>
+
+		<div id="planejar">
+			<h2 class="section-title">Planeje sua Viagem</h2>
+			<div class="grid">
+				<div class="card">
+					<div class="card-img-box"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600" alt="O que fazer" /></div>
+					<h3>O Que Fazer</h3>
+					<p>As melhores trilhas e praias desertas da Ilha.</p>
+				</div>
+				<div class="card">
+					<div class="card-img-box"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" alt="Onde ficar" /></div>
+					<h3>Onde Ficar</h3>
+					<p>Escolha as melhores pousadas e campings.</p>
+				</div>
+				<div class="card">
+					<div class="card-img-box"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" alt="Onde comer" /></div>
+					<h3>Onde Comer</h3>
+					<p>Saboreie a autêntica culinária caiçara.</p>
+				</div>
+				<div class="card">
+					<div class="card-img-box"><img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?w=600" alt="Guia Prático" /></div>
+					<h3>Guia Prático</h3>
+					<p>Como chegar, horários de barcos e dicas essenciais.</p>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div>
+				<h4 style="border:none; padding:0; color:white; font-size: 1.5rem; margin-bottom: 20px;">Guia de Ilha Grande</h4>
+				<p>Informações reais e atualizadas por especialistas. Nossa missão é promover um turismo consciente e inesquecível.</p>
+			</div>
+			<div>
+				<h4>Silos Principais</h4>
+				<ul>
+					<li>🏝️ <a href="#">Melhores Praias</a></li>
+					<li>🥾 <a href="#">Guia de Trilhas</a></li>
+					<li>🏡 <a href="#">Onde se Hospedar</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Contato</h4>
+				<ul>
+					<li>📍 Vila do Abraão, Ilha Grande</li>
+					<li>📧 contato@guiadeilhagrande.com.br</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				© 2026 GUIA DE ILHA GRANDE. ESPECIALISTAS EM TURISMO.
+			</div>
+		</footer>
+
+	</body>
+</html>
