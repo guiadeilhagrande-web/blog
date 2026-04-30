@@ -1,0 +1,72 @@
+<section class="categories">
+  <div class="container">
+    <h2>Planeje sua Viagem</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>O Que Fazer</h3>
+        <p>Praias, trilhas e passeios de barco.</p>
+      </div>
+      <div class="card">
+        <h3>Onde Ficar</h3>
+        <p>Pousadas, hotéis e camping.</p>
+      </div>
+      <div class="card">
+        <h3>Onde Comer</h3>
+        <p>Culinária caiçara e frutos do mar.</p>
+      </div>
+      <div class="card">
+        <h3>Guia Prático</h3>
+        <p>Dicas e acessos à ilha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .categories {
+    padding: 3rem 0;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+    font-size: 1.75rem;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+  .card h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark-blue);
+    font-size: 1.1rem;
+  }
+  .card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+  @media (max-width: 768px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

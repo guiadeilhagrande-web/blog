@@ -1,0 +1,71 @@
+<section class="recent-posts">
+  <div class="container">
+    <h2>Posts recentes</h2>
+    <div class="posts-grid">
+      <article class="post-card">
+        <h3><a href="/posts/lagoa-azul">Guia completo da Lagoa Azul</a></h3>
+        <p>Como chegar, melhor horário e dicas para evitar multidões.</p>
+        <time datetime="2026-04-15">15 de abril, 2026</time>
+      </article>
+      <article class="post-card">
+        <h3><a href="/posts/melhor-epoca">Melhor época para visitar Ilha Grande</a></h3>
+        <p>Clima, alta temporada x baixa temporada e eventos anuais.</p>
+        <time datetime="2026-04-10">10 de abril, 2026</time>
+      </article>
+      <article class="post-card">
+        <h3><a href="/posts/trilha-lopes-mendes">Trilha do Lopes Mendes: passo a passo</a></h3>
+        <p>Tempo, nível de dificuldade e o que levar.</p>
+        <time datetime="2026-04-05">5 de abril, 2026</time>
+      </article>
+      <article class="post-card">
+        <h3><a href="/posts/pousadas-com-ar-condicionado">Pousadas com ar condicionado em Ilha Grande</a></h3>
+        <p>Lista atualizada das melhores opções.</p>
+        <time datetime="2026-03-28">28 de março, 2026</time>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .recent-posts {
+    padding: 3rem 0;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .post-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+  }
+  .post-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .post-card h3 {
+    margin: 0 0 0.75rem 0;
+  }
+  .post-card h3 a {
+    color: var(--dark-blue);
+    text-decoration: none;
+  }
+  .post-card h3 a:hover {
+    color: var(--primary-green);
+  }
+  .post-card p {
+    margin: 0 0 1rem 0;
+    color: #475569;
+  }
+  .post-card time {
+    font-size: 0.875rem;
+    color: #94a3b8;
+  }
+</style>

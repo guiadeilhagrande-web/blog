@@ -1,0 +1,37 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/webp" href="/favicon.webp" />
+		<link rel="apple-touch-icon" href="/favicon.webp" />
+		<!-- REMOVEMOS O VIEWTRANSITIONS DAQUI PARA PARAR DE BUGAR -->
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	:root { --primary-green: #10b981; --dark-blue: #0f172a; }
+	body { margin: 0; font-family: system-ui, sans-serif; background-color: #f8fafc; }
+	.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+</style>

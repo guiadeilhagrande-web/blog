@@ -1,11 +1,11 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCards from '../components/HeroCards.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout 
+  title="Guia de Ilha Grande | Informações atualizadas 2026" 
+  description="Guia completo de Ilha Grande com dicas de onde ficar, o que fazer, como chegar e roteiros. Conteúdo criado por especialistas locais."
+>
+  <HeroCards />
+</BaseLayout>
