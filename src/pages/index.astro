@@ -63,28 +63,34 @@
 				}
 				
 				.logo-link { 
-					display: block;
-					width: 55%;          /* ← era 75%, reduzido para ocupar menos altura */
-					padding: 6px 0 4px 0; /* ← era 10px 0 0 0, reduzido */
-					margin: 0 auto;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					padding: 0;
+					margin: 0;
 					line-height: 0;
 					font-size: 0;
+					/* Altura fixa para não crescer além do necessário */
+					height: 90px;
+					overflow: hidden;
 				}
 				.logo-img { 
-					width: 100%;
-					height: auto;
+					height: 90px;   /* altura fixa igual ao container */
+					width: auto;
 					display: block;
 					margin: 0;
 					padding: 0;
+					object-fit: contain;
 				}
 				
 				nav { 
 					display: grid; 
 					grid-template-columns: repeat(3, 1fr); 
 					width: 100%;
-					padding: 6px 0 8px 0;
+					padding: 4px 0 6px 0;
 					margin: 0;
-					border-top: none;
+					border-top: 1px solid #e2e8f0;
 					box-sizing: border-box;
 				}
 				nav a { 
@@ -95,7 +101,7 @@
 					font-style: italic;
 					text-transform: none; 
 					text-align: center;
-					padding: 5px 4px;
+					padding: 4px 4px;
 					display: block;
 					line-height: 1.4;
 				}
