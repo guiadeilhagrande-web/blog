@@ -52,41 +52,37 @@
 
 			/* --- CONFIGURAÇÃO MOBILE (CELULAR) --- */
 			@media (max-width: 1023px) {
-				header { padding: 0; }
-				
+				header { padding: 0; margin: 0; }
+
 				.header-container { 
 					flex-direction: column; 
 					align-items: center; 
 					gap: 0;
 					padding: 0;
+					margin: 0;
 				}
 				
 				.logo-link { 
-					display: flex; 
-					justify-content: center;
-					align-items: flex-end;
-					padding: 0;
-					margin: 0;
-					width: 100%;
-					box-sizing: border-box;
-					font-size: 0;
+					display: block;
+					width: 75%;
+					padding: 10px 0 0 0;
+					margin: 0 auto;
 					line-height: 0;
+					font-size: 0;
 				}
 				.logo-img { 
-					height: 90px;
-					width: auto; 
-					max-width: 75vw;
+					width: 100%;
+					height: auto;
 					display: block;
-					padding: 8px 0 0 0;
 					margin: 0;
+					padding: 0;
 				}
 				
 				nav { 
 					display: grid; 
 					grid-template-columns: repeat(3, 1fr); 
-					gap: 0; 
 					width: 100%;
-					padding: 0;
+					padding: 6px 0 8px 0;
 					margin: 0;
 					border-top: none;
 					box-sizing: border-box;
@@ -99,9 +95,9 @@
 					font-style: italic;
 					text-transform: none; 
 					text-align: center;
-					padding: 8px 4px;
+					padding: 5px 4px;
 					display: block;
-					line-height: 1.3;
+					line-height: 1.4;
 				}
 			}
 
