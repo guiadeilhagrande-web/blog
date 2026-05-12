@@ -53,30 +53,27 @@
 
 			/* --- CONFIGURAÇÃO MOBILE (CELULAR) --- */
 			@media (max-width: 1023px) {
-				header { padding: 0; }
+				header { padding: 8px 0; }
 				.header-container { flex-direction: column; align-items: center; }
 				
 				.logo-link { 
-                    margin-bottom: -30px;
                     display: flex; 
                     justify-content: center;
-                    line-height: 0;
+                    padding: 8px 0;
                 }
 				.logo-img { 
-					height: 190px; /* LOGO NO CELULAR: 190PX */
+					height: 80px; /* LOGO NO CELULAR: 80PX (reduzido) */
 					width: auto; 
-                    max-width: 95vw; /* Evita que a logo saia da tela */
-                    display: block;
+                    max-width: 95vw;
 				}
 				
 				nav { 
 					display: grid; 
 					grid-template-columns: repeat(3, 1fr); 
-					gap: 2px; 
+					gap: 5px; 
 					width: 100%;
-					padding: 8px 5% 12px;
+					padding: 8px 5%; 
 					border-top: 1px solid #f8fafc;
-                    margin-top: -5px;
 				}
 				nav a { 
 					text-decoration: none; 
@@ -86,7 +83,6 @@
 					text-transform: uppercase; 
 					text-align: center;
                     padding: 4px 0;
-                    line-height: 1.2;
 				}
 			}
 
@@ -100,7 +96,6 @@
 				color: white; 
 				background: #000;
 				padding: 0 20px;
-				margin-top: -10px;
 			}
 			.hero h1 { font-size: clamp(2rem, 8vw, 4.5rem); margin: 0; font-weight: 900; text-transform: uppercase; line-height: 1; }
 			.hero p { font-size: 1.1rem; margin: 15px 0 25px; opacity: 0.8; }
