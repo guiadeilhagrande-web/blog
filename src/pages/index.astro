@@ -20,21 +20,23 @@
 				top: 0; 
 				z-index: 100; 
 				width: 100%;
+				box-sizing: border-box;
 			}
 
 			.header-container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 20px;
+				max-width: 100%;
+				margin: 0;
+				padding: 0;
                 width: 100%;
                 display: flex;
                 position: relative;
+                box-sizing: border-box;
 			}
 
 			/* --- CONFIGURAÇÃO DESKTOP (PC) --- */
 			@media (min-width: 1024px) {
 				header { height: 90px; display: flex; align-items: center; }
-				.header-container { flex-direction: row; justify-content: space-between; align-items: center; }
+				.header-container { flex-direction: row; justify-content: space-between; align-items: center; padding: 0 20px; }
 				
 				.logo-link { position: relative; z-index: 110; height: 90px; display: flex; align-items: center; }
 				.logo-img { 
@@ -53,30 +55,33 @@
 
 			/* --- CONFIGURAÇÃO MOBILE (CELULAR) --- */
 			@media (max-width: 1023px) {
-				header { padding: 10px 0; }
+				header { padding: 0; }
 				.header-container { flex-direction: column; align-items: center; gap: 0; }
 				
 				.logo-link { 
                     display: flex; 
                     justify-content: center;
-                    padding: 5px 0;
+                    padding: 8px 0;
                     position: relative;
                     z-index: 110;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
 				.logo-img { 
-					height: 120px; /* LOGO NO CELULAR: 120PX */
+					height: 140px; /* LOGO NO CELULAR: 140PX */
 					width: auto; 
-                    max-width: 100%;
+                    max-width: 90vw;
 				}
 				
 				nav { 
 					display: grid; 
 					grid-template-columns: repeat(3, 1fr); 
-					gap: 8px; 
+					gap: 0; 
 					width: 100%;
-					padding: 10px 20px; 
+					padding: 6px 0; 
 					border-top: 1px solid #f8fafc;
 					box-sizing: border-box;
+					margin: 0;
 				}
 				nav a { 
 					text-decoration: none; 
@@ -85,7 +90,8 @@
 					font-weight: 800; 
 					text-transform: uppercase; 
 					text-align: center;
-                    padding: 5px 2px;
+                    padding: 6px 5px;
+                    display: block;
 				}
 			}
 
